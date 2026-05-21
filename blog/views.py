@@ -11,11 +11,7 @@ def blog_single(request, pid):
     context = {'post': post}
     return render(request, 'blog/blog-single.html', context)
 
-def test(request, pid):
-    #post =  Post.objects.get(id = pid)
-    Posts = Post.objects.filter(status = 1)
-    post = get_object_or_404(Post, pk = pid)
-    context = {'post': post}
-    return render(request, 'test.html', context)
+def test(request):
+    return render(request,'test.html')
 
 # Create your views here.
