@@ -5,7 +5,7 @@ class contact(models.Model):
     email = models.EmailField()
     subject = models.CharField(max_length=255)
     message = models.TextField()
-    created_date = models.DateTimeField(auto_created=True)
+    created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
     class Meta:
