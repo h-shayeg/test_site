@@ -1,5 +1,5 @@
 from django.contrib import admin
-from web.models import contact
+from web.models import contact, Newslatter
 
 class ContactAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'
@@ -7,5 +7,5 @@ class ContactAdmin(admin.ModelAdmin):
     list_filter = ('email',)
     search_fields = ['name', 'message']
 admin.site.register(contact, ContactAdmin)
-
+admin.site.register(Newslatter)
 # Register your models here.
