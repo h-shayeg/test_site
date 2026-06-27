@@ -34,18 +34,34 @@
     <header id="header">
         <div class="container main-menu">
             <div class="row align-items-center justify-content-between d-flex">
+
                 <div id="logo">
                 </div>
+
                 <nav id="nav-menu-container">
-                    <ul class="nav-menu">
+
+                    <!-- Login / Signup -->
+                    <ul class="nav-menu" style="float:right;">
+                        {% if request.user.is_authenticated %}
+                            <li><a href="#">Logged in as {{ request.user.username }}</a></li>
+                        {% else %}
+                            <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                            <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+                        {% endif %}
+                    </ul>
+
+                    <!-- Main Menu -->
+                    <ul class="nav-menu" style="float:left;">
                         <li><a href="{% url 'web:index' %}">Home</a></li>
                         <li><a href="{% url 'web:about' %}">About</a></li>
                         <li><a href="{% url 'blog:index' %}">Blog</a></li>
-                        </li>
-                        <li class="menu-has-children"><a href>Pages</a>
+
+                        <li class="menu-has-children">
+                            <a href="#">Pages</a>
                             <ul>
                                 <li><a href="elements.html">Elements</a></li>
-                                <li class="menu-has-children"><a href>Level 2 </a>
+                                <li class="menu-has-children">
+                                    <a href="#">Level 2</a>
                                     <ul>
                                         <li><a href="#">Item One</a></li>
                                         <li><a href="#">Item Two</a></li>
@@ -53,9 +69,12 @@
                                 </li>
                             </ul>
                         </li>
+
                         <li><a href="{% url 'web:contact' %}">Contact</a></li>
                     </ul>
+
                 </nav>
+
             </div>
         </div>
     </header>
